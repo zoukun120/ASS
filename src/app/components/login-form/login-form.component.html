@@ -1,0 +1,13 @@
+<form [formGroup]="myForm" (ngSubmit)="onsubmit(myForm.value)">
+  <div class="from-group">
+      <label for="username">用户名：</label>
+      <input id="username" type="text" placeholder="用户名" class="form-control" [formControl]="myForm.controls['username']">
+      <div  *ngIf="myForm.controls['username'].hasError('required') && myForm.controls['username'].touched" class="error">用户名不能为空</div>
+ </div>
+  <div class="from-group"> 
+      <label for="pwd">密码：</label>
+      <input id="pwd" type="text" placeholder="密码" class="form-control" [formControl]="myForm.controls['password']"> 
+      <div  *ngIf="myForm.controls['password'].hasError('required') && myForm.controls['password'].touched" class="error">密码不能为空</div>
+  </div>
+  <button type="submit" class="btn btn-info">登陆</button>
+</form>
